@@ -1,0 +1,21 @@
+.single-attribute:hover {
+  background-color: lightgray;
+  cursor: pointer;
+}
+
+.single-attribute-selected {
+  background-color: lightgray;
+}
+
+.single-attribute {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.single-attribute-assigned {
+  margin-left: 10px;
+}
+
+.single-attribute-assigned-type {
+  margin-right: 10px;
+}

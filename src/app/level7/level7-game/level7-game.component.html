@@ -1,0 +1,115 @@
+<div class="row jumbotron centerTop justify-content-between">
+  <div class="col-auto">
+    <h3>Level 7</h3>
+    Erstelle eine Methode, die die durchschnittliche Fahrzeit eines Mitarbeiters pro Woche berechnet. <br> Wenn die
+    durchschnittliche Fahrzeit mehr als 2 Stunden beträgt, soll der Mitarbeiter einen Bonus bekommen. Wähle zuerst die Anweisung und dann die passende Stelle im Diagramm aus.<br>
+  </div>
+  <div class="col-auto mt-3">
+    <i class="fas fa-address-card fa-3x mr-1"></i>
+  </div>
+</div>
+<div class="row justify-content-around mb-4">
+  <div class="col-auto">
+    <div class="row mb-4">
+      <div class="col-auto">
+        <h4>Klasse</h4>
+        <div class="uml">
+          <div class="uml-heading">Mitarbeiter</div>
+          <div class="uml-attributes">
+            <div *ngFor="let attribute of attributes">
+              {{attribute.name}}: {{attribute.type}}
+            </div>
+          </div>
+          <div class="uml-methods">
+            berechneDurchschnittlicheFahrzeit(): double <br>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h4>Beispiel-Instanz</h4>
+        <div class="uml">
+          <div class="uml-heading" style="text-decoration: underline">Müller:Mitarbeiter</div>
+          <div class="uml-attributes">
+            <div *ngFor="let attribute of attributes">
+              {{attribute.name}}: {{attribute.value}}
+            </div>
+          </div>
+          <div class="uml-methods">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-auto mt-4">
+    <div class="structogramm-method">
+      <p (click)="orderedStructClicked(0)" class="pointer">
+        {{orderedStructs[0].text}}
+      </p>
+      <div class=" structogramm command" (click)="orderedStructClicked(1)">
+        <p class="pointer">
+          {{orderedStructs[1].text}}
+        </p>
+      </div>
+      <div class="structogramm command" (click)="orderedStructClicked(2)">
+        <p class="pointer">
+          {{orderedStructs[2].text}}
+        </p>
+      </div>
+      <div class="structogramm loop">
+        <p (click)="orderedStructClicked(3)" class="pointer"> {{orderedStructs[3].text}}</p>
+        <div class="structogramm command" (click)="orderedStructClicked(4)">
+          <p class="pointer">
+            {{orderedStructs[4].text}}
+          </p>
+        </div>
+        <div class="structogramm command" (click)="orderedStructClicked(5)">
+          <p class="pointer">
+            {{orderedStructs[5].text}}
+          </p>
+        </div>
+      </div>
+      <div class="structogramm command" (click)="orderedStructClicked(6)">
+        <p class="pointer">
+          {{orderedStructs[6].text}}
+        </p>
+      </div>
+      <div class="condition condition-boarder">
+        <p class="pointer" (click)="orderedStructClicked(7)">{{orderedStructs[7].text}}</p>
+        <div class="row condition-row">
+          <div class="col condition-true condition-true-boarder" (click)="orderedStructClicked(8)">
+            <p class="pointer">{{orderedStructs[8].text}}</p>
+          </div>
+          <div class="col condition-false condition-false-boarder" (click)="orderedStructClicked(9)">
+            <p class="pointer">{{orderedStructs[9].text}}</p>
+          </div>
+        </div>
+        <div class="row condition-row">
+          <div class="col condition-true condition-true-boarder" (click)="orderedStructClicked(10)">
+            <p class="pointer">{{orderedStructs[10].text}}</p>
+          </div>
+          <div class="col condition-false condition-false-boarder" (click)="orderedStructClicked(11)">
+            <p class="pointer">{{orderedStructs[11].text}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-auto mt-4">
+    <div class="row" *ngIf="showAlert">
+      <div class="alert alert-danger col" role="alert">
+        Falsche Reihenfolge. Versuche es erneut!
+      </div>
+    </div>
+    <div class="row m-1" *ngFor="let struct of structs">
+      <button class="btn btn-outline-dark" (click)="structClicked(struct)">{{struct.text}}</button>
+    </div>
+  </div>
+</div>
+<div class="row justify-content-around mt-5" *ngIf="levelCompleted()">
+  <div class="col-auto">
+    <button type="button" class="btn btn-success" (click)="saveAndRedirect('/overview')">Zur Levelübersicht <i class="fas fa-list"></i></button>
+  </div>
+</div>
+

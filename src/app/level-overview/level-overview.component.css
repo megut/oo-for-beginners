@@ -1,0 +1,21 @@
+.cardNotActive {
+  position: relative;
+  background: lightgray;
+  opacity: 0.6;
+}
+
+.icons {
+  position: absolute;
+  font-size: 4em;
+  top: 4.5rem;
+  left: 7rem;
+  color: black;
+}
+
+.levelCard {
+  width: 18rem;
+}
+
+.pointer {
+  cursor: pointer;
+}

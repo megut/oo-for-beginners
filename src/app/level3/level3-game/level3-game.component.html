@@ -1,0 +1,84 @@
+<div class="row jumbotron centerTop">
+  <div class="col">
+    <h3>Level 3</h3>
+    Durchlaufe das Array und berechne den Gesamtpreis. Dafür soll eine Schleife verwendet werden. Bringe dafür die Anweisungen in die richtige Reihenfolge. Wähle
+    zuerst eine Anweisung und danach die passende Stelle im Diagramm aus. Du kannst dabei die Legende auf der rechten Seite als Hilfe verwenden.
+    <br> <br>
+  </div>
+</div>
+<div class="row justify-content-around mt-5">
+  <div class="col-auto">
+    <div class="row justify-content-center mb-4">
+      <div class="col-auto" *ngFor="let price of prices, let i = index;">
+        <div class="row justify-content-center mb-1">
+          <div class="col-auto">
+            {{price}}€
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <i class="fas fa-shuttle-van fa-2x"></i>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-auto">
+            {{i}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="showAlert">
+      <div class="alert alert-danger col" role="alert">
+        Falsche Reihenfolge. Versuche es erneut!
+      </div>
+    </div>
+    <div class="row justify-content-around">
+      <div class="col-auto mr-5" *ngIf="structs.length>0">
+        <div class="row" *ngFor="let struct of structs">
+          <div class="mb-2">
+            <button type="button" class="btn btn-outline-dark" (click)="structClicked(struct)">{{struct.text}}</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-auto">
+        <div class="structogramm-boader">
+          <div class="structogramm command" (click)="orderedStructClicked(0)">
+            <p class="pointer">
+              {{orderedStructs[0].text}}
+            </p>
+          </div>
+          <div class="structogramm command" (click)="orderedStructClicked(1)">
+            <p class="pointer">
+              {{orderedStructs[1].text}}
+            </p>
+          </div>
+          <div class="structogramm loop">
+            <p (click)="orderedStructClicked(2)" class="pointer">
+              {{orderedStructs[2].text}}
+            </p>
+            <div class="structogramm command" (click)="orderedStructClicked(3)">
+              <p class="pointer">
+                {{orderedStructs[3].text}}
+              </p>
+            </div>
+            <div class="structogramm command" (click)="orderedStructClicked(4)">
+              <p class="pointer">
+                {{orderedStructs[4].text}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-legend></app-legend>
+</div>
+<div class="row justify-content-around mt-4" *ngIf="levelCompleted()">
+  <div class="col-auto">
+    <button type="button" class="btn btn-light" (click)="saveAndRedirect('/overview')">Zur Levelübersicht <i class="fas fa-list"></i></button>
+  </div>
+  <div class="col-auto">
+    <button type="button" class="btn btn-success" (click)="saveAndRedirect('/level4/introduction')">Nächstes Level <i class="fas fa-check"></i></button>
+  </div>
+</div>
+

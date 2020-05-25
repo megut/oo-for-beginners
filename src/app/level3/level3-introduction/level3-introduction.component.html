@@ -1,0 +1,86 @@
+<div class="container">
+  <div class="center jumbotron">
+    <div class="mb-3">
+      <h2>Schleifen</h2>
+    </div>
+    <h5>Durch die Verwendung von Schleifen, können Anweisungen so oft wiederholt werden, bis die Abbruchsbedingung(en) erfüllt werden.</h5>
+    <div class="row justify-content-center mt-4">
+      <div class="col-auto" *ngFor="let i of [0,1,2,3,4]">
+        <div class="row justify-content-center">
+          <div class="col-auto">
+            <i class="fas fa-ticket-alt" *ngIf="i!==3"></i>
+            <i class="fas fa-times" *ngIf="i===3"></i>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-auto">
+            <i class="fas fa-car fa-2x"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-around mt-3">
+      <div class="col-auto">
+        <div class="row">
+          <div class="col-auto">
+            <h3>Ohne Schleife</h3>
+          </div>
+        </div>
+        <div class="row justify-content-center mt-3">
+          <div class="structogramm-boader col-auto">
+            <div class="structogramm command">
+              <p> Zum ersten Auto gehen</p>
+            </div>
+            <div class="structogramm command">
+              <p> Prakticket prüfen</p>
+            </div>
+            <div class="structogramm command">
+              <p> Zum nächsten Auto gehen</p>
+            </div>
+            <div class="structogramm command">
+              <p> Prakticket prüfen</p>
+            </div>
+            <div class="structogramm command">
+              <p> Zum nächsten Auto gehen</p>
+            </div>
+            <div class="structogramm command">
+              <p>Parkticket prüfen</p>
+            </div>
+            <div class="structogramm command">
+              <p>...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-auto">
+        <div class="row">
+          <div class="col-auto">
+            <h3>Mit Schleife</h3>
+          </div>
+        </div>
+        <div class="row justify-content-center mt-3">
+          <div class="structogramm-boader col-auto">
+            <div class="structogramm command">
+              <p> Zum ersten Auto gehen</p>
+            </div>
+            <div class="structogramm loop">
+              <p> Solange weitere Autos vorhanden sind</p>
+              <div class="structogramm command">
+                <p> Parkticket prüfen</p>
+              </div>
+              <div class="structogramm command">
+                <p> Zum nächsten Auto gehen</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-end">
+      <div class="col-auto">
+        <button type="button" class="btn btn-success" [routerLink]="'/level3/game'">Weiter <i class="fas fa-check"></i></button>
+      </div>
+    </div>
+  </div>
+</div>

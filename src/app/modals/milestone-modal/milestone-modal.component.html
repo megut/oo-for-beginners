@@ -1,0 +1,35 @@
+<div class="modal-header modal-block-primary">
+  <h4 class="modal-title"><i class="fas fa-star" style="color: yellow"></i> Meilenstein erreicht! <i class="fas fa-star" style="color: yellow"></i></h4>
+  <button type="button" class="close" (click)="leave()">
+    <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+  </button>
+</div>
+<div class="modal-body clearfix">
+  <div class="modal-text">
+    <div class="row justify-content-center">
+      <div class="col-auto" *ngIf="level===1">
+        <a href="http://www.animierte-gifs.net/cat-feuerwerk-492.htm"><img src="http://www.animierte-gifs.net/data/media/492/animiertes-feuerwerk-bild-0080.gif" border="0"
+                                                                           alt="animiertes-feuerwerk-bild-0080"/></a>
+      </div>
+      <div class="col-auto" *ngIf="level===2">
+        <a href="http://www.animierte-gifs.net/cat-erfolg-1574.htm"><img src="http://www.animierte-gifs.net/data/media/1574/animiertes-erfolg-bild-0013.gif" border="0"
+                                                                         alt="animiertes-erfolg-bild-0013"/></a>
+      </div>
+      <div class="col-auto" *ngIf="level===4">
+        <a href="http://www.animierte-gifs.net/cat-computer-56.htm"><img src="http://www.animierte-gifs.net/data/media/56/animiertes-computer-bild-0111.gif" border="0"
+                                                                         alt="animiertes-computer-bild-0111"/></a>
+      </div>
+
+      <div class="col-auto" *ngIf="level===7">
+        <a href="http://www.animierte-gifs.net/cat-diplom-und-promotion-1137.htm"><img src="http://www.animierte-gifs.net/data/media/1137/animiertes-diplom-promotion-bild-0009.gif"
+                                                                                       border="0" alt="animiertes-diplom-promotion-bild-0009"/></a>
+      </div>
+    </div>
+  </div>
+  <h5>{{text}} Herzlichen Glückwunsch! <i class="fas fa-award" style="color: green" *ngIf="level<7"></i> <i class="fas fa-graduation-cap" style="color: green"
+                                                                                                            *ngIf="level===7"></i></h5>
+</div>
+<div class="modal-footer">
+  <button class="btn  btn-success" (click)="leave()">Ok</button>
+</div>
+

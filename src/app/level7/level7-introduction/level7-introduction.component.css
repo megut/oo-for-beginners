@@ -1,0 +1,30 @@
+p {
+  margin: 0px;
+  padding: 10px;
+}
+
+input:focus {
+  outline: none;
+  caret-color: transparent;
+}
+
+input {
+  border: solid;
+  border-color: black;
+  border-width: 1px;
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+}
+
+.input-disabled {
+  cursor: default;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.background-lightgrey:hover {
+  background-color: #e5e5e5;
+}

@@ -1,0 +1,71 @@
+<div class="row jumbotron centerTop justify-content-between">
+  <div class="col-auto">
+    <h3>Level 6</h3>
+    Es werden nacheinander Diagramme gezeigt. Du musst entscheiden, ob es sich dabei um ein Instanz(Objekt) oder eine Klasse(Schablone) handelt. Um das Level zu bestehen, musst du
+    6 von 6
+    richtige Antworten geben.
+  </div>
+  <div class="col-auto mt-3">
+    <i class="far fa-list-alt fa-3x"></i>
+  </div>
+</div>
+<div class="container mt-5 mb-5 center">
+  <div class="row" *ngIf="wrongAnswers && !levelCompleted()">
+    <div class="alert alert-warning col" role="alert">
+      Du hast {{wrongIndex}} von 6 Aufgaben falsch beantwortet. Möchtest du das Level wiederholen? Du kannst das Level nur abschließen, wenn du keine Fehler gemacht hast!
+      <button type="button" class="btn btn-warning mt-2 ml-2" (click)="repeatLevel()">Level wiederholen <i class="fas fa-redo"></i></button>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-auto">
+      <div class="mb-3">
+        <h4>Klasse oder Instanz?</h4>
+      </div>
+      <div class="uml">
+        <div class="uml-heading" [ngClass]="{'outline': umls[index].type==='Instanz'}">{{umls[index].name}}</div>
+        <div class="uml-attributes">
+          <div *ngFor="let attribute of umls[index].attributes">
+            <div>
+              {{attribute.name}}: {{attribute.value}}
+            </div>
+          </div>
+        </div>
+        <div class="uml-methods"></div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-3" *ngIf="!levelCompleted()">
+    <div class="col-auto mr-5">
+      <button type="button" class="btn btn-primary" (click)="checkIndex('Klasse')">Klasse</button>
+    </div>
+    <div class="col-auto ml-5">
+      <button type="button" class="btn btn-warning" (click)="checkIndex('Instanz')">Instanz</button>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-3" *ngIf="!wrongAnswers&&levelCompleted()">
+    <div class="col-auto">
+      <div class="alert alert-success" role="alert">
+        Du hast keine Fehler gemacht und das Level bestanden! Super!
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-around mt-1" *ngIf="levelCompleted()">
+    <div class="col-auto mt-4" *ngIf="wrongAnswers">
+      <div class="alert alert-danger" role="alert">
+        <div class="row">
+          Du hast {{wrongIndex}} von 6 Aufgaben falsch beantwortet. Du kannst das Level nur abschließen, wenn du keine Fehler gemacht hast!
+        </div>
+        <div class="row justify-content-between">
+          <button type="button" class="btn btn-danger ml-2 mr-2 mt-2" [routerLink]="['/overview']">Zur Levelübersicht <i class="fas fa-list"></i></button>
+          <button type="button" class="btn btn-light ml-2 mr-2 mt-2" (click)="repeatLevel()">Level wiederholen <i class="fas fa-redo"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="col-auto" *ngIf="!wrongAnswers">
+      <button type="button" class="btn btn-light" (click)="saveAndRedirect('/overview')">Zur Levelübersicht <i class="fas fa-list"></i></button>
+    </div>
+    <div class="col-auto" *ngIf="!wrongAnswers">
+      <button type="button" class="btn btn-success" (click)="saveAndRedirect('/level7/introduction')">Nächstes Level <i class="fas fa-check"></i></button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,84 @@
+<div class="row jumbotron centerTop">
+  <div class="col">
+    <h3>Level 2
+    </h3>
+    Ordne die folgenden Werte den entsprechenden Arrays zu. Dabei muss zuerst auf den Wert und danach auf die Stelle des Arrays geklickt
+    werden. <br> <br>
+    Zur Erinnerung die Datentypen sind: <br>
+    <ul>
+      <li>
+        int (ganzzahlige Zahlen)
+      </li>
+      <li>
+        double (Kommazahlen)
+      </li>
+      <li>
+        boolean (Wahrheitswerte)
+      </li>
+      <li>
+        String (Texte)
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="container mt-5 mb-5">
+  <div class="row justify-content-center">
+    <div class="col">
+      <div class="row">
+        <div class="col-auto m-4" *ngFor="let unsortedValue of values">
+          <button type="button" class="btn noBoxShadow" *ngIf="unsortedValue" (click)="valueClicked(unsortedValue)"
+                  [ngClass]="{'btn-secondary': unsortedValue===this.value, 'btn-outline-secondary': unsortedValue!==this.value}">
+            {{unsortedValue}}
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="row justify-content-center" *ngIf="showAlert">
+        <div class="alert alert-danger col" role="alert">
+          Falschen Datentypen ausgewählt. Versuchs erneut!
+        </div>
+      </div>
+      <div class="row justify-content-center" *ngIf="showIndexAlert">
+        <div class="alert alert-danger col" role="alert">
+          Stelle des Arrays schon besetzt. Versuchs erneut!
+        </div>
+      </div>
+      <div *ngFor="let type of sortedTypes, let typeIndex = index;">
+        <div class="row">
+          <div class="col-auto"><h4>{{type.name}}</h4></div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-auto pointer" *ngFor="let item of type.array; let i = index;" (click)="addToType(typeIndex, i)">
+            <div class="row justify-content-center mb-1">
+              <div class="col-auto" *ngIf="item">
+                {{item}}
+              </div>
+              <div class="col-auto" *ngIf="item===undefined">
+                -
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <i class="fas fa-shuttle-van fa-2x"></i>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-auto">
+                {{i}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-around" *ngIf="levelCompleted()">
+    <div class="col-auto">
+      <button type="button" class="btn btn-light" (click)="saveAndRedirect('/overview')">Zur Levelübersicht <i class="fas fa-list"></i></button>
+    </div>
+    <div class="col-auto">
+      <button type="button" class="btn btn-success" (click)="saveAndRedirect('/level3/introduction')">Nächstes Level <i class="fas fa-check"></i></button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+<div class="row jumbotron centerTop justify-content-between">
+  <div class="col-auto">
+    <h3>Level 4</h3>
+    Ein wichtiger Termin muss in den Kalender eingetragen werden. Beim Durchgehen der Termine wird entweder ein passender Zeitraum gefunden oder es ist kein Termin mehr frei.<br>Falls
+    in dieser Woche kein passender Zeitraum gefunden wird, muss der Termin verschoben werden. <br>Bringe dafür
+    die Anweisungen in die richtige Reihenfolge. Wähle zuerst eine Anweisung und danach die passende Stelle im Diagramm aus. Du kannst dabei die Legende auf der rechten Seite als
+    Hilfe verwenden.
+  </div>
+  <div class="col-auto mt-3">
+    <i class="fas fa-calendar-alt fa-3x mr-1"></i>
+    <i class="fas fa-question fa-3x mr-2"></i>
+    <i class="fas fa-arrow-right fa-3x mr-3"></i>
+    <i class="far fa-calendar-check fa-3x"></i>
+  </div>
+</div>
+<div class="mt-5 mb-5">
+  <div class="row justify-content-around">
+    <div class="col-auto">
+      <div class="row" *ngIf="showAlert">
+        <div class="alert alert-danger col" role="alert">
+          Falsche Reihenfolge. Versuche es erneut!
+        </div>
+      </div>
+      <div class="row justify-content-between">
+        <div class="col-auto" *ngIf="structs.length>0">
+          <div class="row m-2" *ngFor="let struct of structs">
+            <div>
+              <button class="btn btn-outline-dark" (click)="structClicked(struct)">{{struct.text}}</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-auto ml-5">
+          <div class="structogramm-boader">
+            <div class="structogramm command" (click)="orderedStructClicked(0)">
+              <p class="pointer">{{orderedStructs[0].text}}</p>
+            </div>
+            <div class="condition condition-boarder">
+              <p (click)="orderedStructClicked(1)" class="pointer">{{orderedStructs[1].text}}</p>
+              <div class="row condition-row">
+                <div class="col condition-true condition-true-boarder" (click)="orderedStructClicked(2)">
+                  <p class="pointer">{{orderedStructs[2].text}}</p>
+                </div>
+                <div class="col condition-false condition-false-boarder" (click)="orderedStructClicked(3)">
+                  <p class="pointer">{{orderedStructs[3].text}}</p>
+                </div>
+              </div>
+              <div class="row condition-row">
+                <div class="col condition-true condition-true-boarder" (click)="orderedStructClicked(4)">
+                  <p class="pointer">{{orderedStructs[4].text}}</p>
+                </div>
+                <div class="col condition-false condition-false-boarder" (click)="orderedStructClicked(5)">
+                  <p class="pointer">{{orderedStructs[5].text}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-legend></app-legend>
+  </div>
+  <div class="row justify-content-around mt-5" *ngIf="levelCompleted()">
+    <div class="col-auto">
+      <button type="button" class="btn btn-light" (click)="saveAndRedirect('/overview')">Zur Levelübersicht <i class="fas fa-list"></i></button>
+    </div>
+    <div class="col-auto">
+      <button type="button" class="btn btn-success" (click)="saveAndRedirect('/level5/introduction')">Nächstes Level <i class="fas fa-check"></i></button>
+    </div>
+  </div>
+</div>

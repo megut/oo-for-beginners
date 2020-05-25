@@ -1,0 +1,130 @@
+/* You can add global styles to this file, and also import other style files */
+.center {
+  margin: 0;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.structogramm {
+  padding: 0px 0px 0px 20px;
+  border-style: solid;
+  border-width: 2px 0px 0px 2px;
+}
+
+.structogramm-boader {
+  padding: 0px 0px 0px 0px;
+  border-style: solid;
+  border-width: 0px 2px 2px 0px;
+}
+
+.structogramm-method {
+  padding: 0px 0px 0px 20px;
+  border-style: solid;
+  border-width: 2px;
+  background-color: #cbcbcb;
+}
+
+.method {
+  background-color: #cbcbcb;
+}
+
+.loop {
+  background-color: #a7a2db;
+}
+
+.command {
+  background-color: #ede886;
+}
+
+.condition {
+  background-color: #7cbded;
+}
+
+.condition-boarder {
+  padding: 0px;
+  border-style: solid;
+  border-width: 2px 0px 0px 2px;
+}
+
+.condition-true {
+  background-color: lightgreen;
+}
+
+.condition-true-boarder {
+  margin: 0px;
+  padding: 0px 0px 0px 20px;
+  border-style: solid;
+  border-width: 2px 2px 0px 0px;
+}
+
+.condition-false-boarder {
+  margin: 0px;
+  padding: 0px 0px 0px 20px;
+  border-style: solid;
+  border-width: 2px 0px 0px 0px;
+}
+
+.condition-false {
+  background-color: #de6666;
+}
+
+.condition-row {
+  margin: 0px;
+  padding: 0px;
+}
+
+.centerTop {
+  margin: 20px;
+  padding: 20px;
+}
+
+.noBoxShadow {
+  box-shadow: 0px 0px;
+}
+
+.uml {
+  background-color: white;
+  margin: 0px;
+  padding: 0px;
+  border-style: solid;
+  border-width: 2px;
+}
+
+.uml-attributes {
+  background-color: white;
+  margin: 0px;
+  padding: 10px;
+  border-style: solid;
+  border-width: 2px 0px 2px 0px;
+}
+
+.uml-heading {
+  padding: 10px;
+  font-weight: bold;
+}
+
+.uml-methods {
+  padding: 10px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.btn-link {
+  color: darkgreen;
+}
+
+.btn-link:hover {
+  color: darkgreen;
+  text-decoration: none;
+}
+
+.panel-heading {
+  cursor: pointer;
+}
+
+

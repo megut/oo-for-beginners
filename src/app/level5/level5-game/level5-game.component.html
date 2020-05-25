@@ -1,0 +1,50 @@
+<div class="row jumbotron centerTop justify-content-between">
+  <div class="col-auto">
+    <h3>Level 5</h3>
+    Die Klasse Haus hat einige Attibute. Ordne den Attributen die passenden Datentypen zu. Dazu musst du zuerst das Attribut auswählen und dann auf den passenden Datentypen
+    klicken.
+  </div>
+  <div class="col-auto mt-3">
+    <i class="fas fa-home fa-3x"></i>
+  </div>
+</div>
+<div class="container mt-5 mb-5 center">
+  <div class="row" *ngIf="showAlert">
+    <div class="alert alert-danger col" role="alert">
+      Falsche Datentyp. Versuche es erneut!
+    </div>
+  </div>
+  <div class="row justify-content-between mt-3">
+    <div class="col-auto">
+      <div class="uml">
+        <div class="uml-heading">Haus</div>
+        <div class="uml-attributes">
+          <div class="row" *ngFor="let attribute of attributes">
+            <div class="single-attribute" (click)="setValue(attribute)"
+                 [ngClass]="{'single-attribute-selected': attribute===this.value&&attribute.assigned===false, 'single-attribute': attribute.assigned===false,
+                 'single-attribute-assigned': attribute.assigned===true}">
+              {{attribute.name}}
+            </div>
+            <div *ngIf="attribute.assigned" [ngClass]="{'single-attribute-assigned-type': attribute.assigned===true}">
+              : {{attribute.type}}
+            </div>
+          </div>
+        </div>
+        <div class="uml-methods"></div>
+      </div>
+    </div>
+    <div class="col-auto">
+      <div class="row justify-content-end mt-3" *ngFor="let type of types">
+        <button type="button" class="btn btn-outline-secondary" (click)="addTypeToAttribute(type)">{{type}}</button>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-around mt-5" *ngIf="levelCompleted()">
+    <div class="col-auto">
+      <button type="button" class="btn btn-light" (click)="saveAndRedirect('/overview')">Zur Levelübersicht <i class="fas fa-list"></i></button>
+    </div>
+    <div class="col-auto">
+      <button type="button" class="btn btn-success" (click)="saveAndRedirect('/level6/introduction')">Nächstes Level <i class="fas fa-check"></i></button>
+    </div>
+  </div>
+</div>

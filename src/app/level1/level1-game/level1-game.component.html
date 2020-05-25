@@ -1,0 +1,72 @@
+<div class="row jumbotron centerTop">
+  <div class="col">
+    <h3>Level 1
+    </h3>
+    Ordne die folgenden Werte den entsprechenden Datentypen zu. Dabei muss zuerst auf den Wert und danach auf den Datentypen geklickt
+    werden. <br> <br>
+    Zur Erinnerung die Datentypen sind: <br>
+    <ul>
+      <li>
+        int (ganzzahlige Zahlen)
+      </li>
+      <li>
+        double (Kommazahlen)
+      </li>
+      <li>
+        boolean (Wahrheitswerte)
+      </li>
+      <li>
+        String (Texte)
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="container mt-5 mb-5">
+  <div class="row justify-content-center">
+    <div class="col-8 ml-3 mb-3 mr-3">
+      <div class="row justify-content-center">
+        <div class="col ml-3 mb-3 mr-3" (click)="valueClicked(unsortedValue)" *ngFor="let unsortedValue of values">
+          <button type="button" class="btn noBoxShadow" [ngClass]="{'btn-secondary': unsortedValue===this.value, 'btn-outline-secondary': unsortedValue!==this.value}">
+            {{unsortedValue.value}}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center mb-5">
+    <div class="col-auto">
+      <div class="row justify-content-center" *ngIf="showAlert">
+        <div class="alert alert-danger col" role="alert">
+          Falschen Datentypen ausgewählt. Versuchs erneut!
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-auto m-3 pointer" (click)="addValueToType(i)" *ngFor="let sortedArray of sortedTypes, let i = index">
+          <div class="row">
+            <div class="col-auto">
+              <i class="fa fa-archive fa-5x"></i>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-auto">
+              {{types[i]}}
+            </div>
+          </div>
+          <div class="row justify-content-center" *ngFor="let sortedValue of sortedArray">
+            <div class="col-auto">
+              {{sortedValue.value}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-around" *ngIf="levelCompleted()">
+    <div class="col-auto">
+      <button type="button" class="btn btn-light" (click)="saveAndRedirect('/overview')">Zur Levelübersicht <i class="fas fa-list"></i></button>
+    </div>
+    <div class="col-auto">
+      <button type="button" class="btn btn-success" (click)="saveAndRedirect('/level2/introduction')">Nächstes Level <i class="fas fa-check"></i></button>
+    </div>
+  </div>
+</div>

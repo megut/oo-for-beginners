@@ -1,0 +1,22 @@
+<div>
+  <div class="row ml-5 mt-3">
+    <div class="ml-5 mr-5" *ngFor="let level of levels">
+      <h4>{{level.name}}</h4>
+      <div class="row">
+        <ng-container *ngFor="let topic of level.topics">
+          <div class="card ml-2 mr-2 mb-2 levelCard" [ngClass]="{'cardNotActive': topic.level>userLevel, 'pointer': topic.level<=userLevel}" (click)="route(topic.level)">
+
+            <img class="card-img-top" src="{{topic.link}}">
+            <div class="card-body">
+              <h5 class="card-title">{{topic.name}}</h5>
+              {{topic.description}}
+            </div>
+            <div class="icons" *ngIf="topic.level>userLevel">
+              <i class="fas fa-lock"></i>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
